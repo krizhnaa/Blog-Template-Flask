@@ -11,7 +11,9 @@ def home():
 
 @app.route('/blog/<id>')
 def get_blog(id):
-    return render_template("posts.html", blog_id=id)
+    response = requests.get("https://api.npoint.io/c790b4d5cab58020d391")
+    blogs = response.json()
+    return render_template("post.html", blog_id=id, blogs=blogs)
 
 if __name__ == "__main__":
     app.run(debug=True)
