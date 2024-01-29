@@ -9,5 +9,9 @@ def home():
     blogs = response.json()
     return render_template("index.html", blogs=blogs)
 
+@app.route('/blog/<id>')
+def get_blog(id):
+    return render_template("posts.html", blog_id=id)
+
 if __name__ == "__main__":
     app.run(debug=True)
