@@ -21,6 +21,12 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route('/contact/<int:id>')
+def get_blog(id):
+    response = requests.get("https://api.npoint.io/c790b4d5cab58020d391")
+    blogs = response.json()
+    return render_template("post.html", blogs=blogs, id=id)
+
 # @app.route('/blog/<int:id>')
 # def get_blog(id):
 #     response = requests.get("https://api.npoint.io/c790b4d5cab58020d391")
