@@ -5,8 +5,13 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>Contact Me</h1>
-                    <span class="subheading">Have questions? I have answers.</span>
+                    {% if not name %}
+                        <h1>Contact Me</h1>
+                        <span class="subheading">Have questions? I have answers.</span>
+                    {% else %}
+                        <h1>Successfully Submitted</h1>
+                        <span class="subheading">Have questions? I have answers.</span>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -27,7 +32,8 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="{{ url_for('login') }}" method="post">
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="{{ url_for('login') }}"
+                          method="post">
                         <div class="form-floating">
                             <input class="form-control" id="name" type="text" placeholder="Enter your name..."
                                    data-sb-validations="required" name="name"/>
@@ -49,13 +55,13 @@
                                 required.
                             </div>
                         </div>
-<!--                        <div class="form-floating">-->
-<!--                            <textarea class="form-control" id="message" placeholder="Enter your message here..."-->
-<!--                                      style="height: 12rem" data-sb-validations="required"></textarea>-->
-<!--                            <label for="message">Message</label>-->
-<!--                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <!--                        <div class="form-floating">-->
+                        <!--                            <textarea class="form-control" id="message" placeholder="Enter your message here..."-->
+                        <!--                                      style="height: 12rem" data-sb-validations="required"></textarea>-->
+                        <!--                            <label for="message">Message</label>-->
+                        <!--                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                         <br/>
                         <!-- Submit success message-->
                         <!---->

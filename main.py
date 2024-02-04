@@ -34,12 +34,8 @@ def login():
     email = request.form.get('email')
     phoneno = request.form.get('phone')
     print(f"Received data: \nname - {name}\nEmail - {email}\nPh.No - {phoneno}")
+    return render_template("contact.html", name=name)
 
-# @app.route('/blog/<int:id>')
-# def get_blog(id):
-#     response = requests.get("https://api.npoint.io/c790b4d5cab58020d391")
-#     blogs = response.json()
-#     return render_template("post.html", blog_id=id, blogs=blogs)
 
 if __name__ == "__main__":
     app.run(debug=True)
