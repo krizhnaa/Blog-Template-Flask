@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
@@ -26,6 +26,14 @@ def get_blog(id):
     response = requests.get("https://api.npoint.io/c790b4d5cab58020d391")
     blogs = response.json()
     return render_template("post.html", blogs=blogs, id=id)
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    phoneno = request.form.get('phone')
+    print(f"Received data: \nname - {name}\nEmail - {email}\nPh.No - {phoneno}")
 
 # @app.route('/blog/<int:id>')
 # def get_blog(id):
